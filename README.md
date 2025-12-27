@@ -63,7 +63,7 @@
          * **Authentication:** `SQL Server Authentication`
          * **Login:** `sa`
          * **Password:** `YourStrongPassword123!`
-         * **CRITICAL:** Click on **Options >>**, go to **Connection Properties** and check the **"Trust server certificate"** box.
+         * **Trust server certificate** ב **Options >**,חפש **Connection Properties** ובחר באופציה  **"Trust server certificate"** שתהיה דלוקה.
    3. לאחר ההתחברות, גררו לתוך התוכנה את הקובץ: `infrastructure/db-script.sql`.
    4. לחצו על **Execute** (או F5) להרצת הסקריפט.
          * *פעולה זו תיצור את מסד הנתונים, הטבלאות ותזין נתונים ראשוניים.*
