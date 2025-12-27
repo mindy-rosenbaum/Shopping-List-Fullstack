@@ -17,7 +17,7 @@ export class OrderRepository {
         if (!exists) {
             await this.client.indices.create({
                 index: this.indexName,
-                body: orderMapping
+                body: (orderMapping as any).default || orderMapping
             });
         }
     }
