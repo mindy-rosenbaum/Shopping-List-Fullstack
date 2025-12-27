@@ -42,17 +42,17 @@ export const Checkout = () => {
       try {
         const response = await createOrder(order);
         if (response.data.success) {
-          showSuccess('🎉 הזמנה בוצעה בהצלחה!');
+          showSuccess('הזמנה בוצעה בהצלחה!');
           dispatch(clearCart());
           formValidation.resetForm();
           setTimeout(() => {
             navigate('/');
           }, 2000);
         } else {
-          showError(`❌ שגיאה בשליחת ההזמנה: ${response.data.error}`);
+          showError(`שגיאה בשליחת ההזמנה: ${response.data.error}`);
         }
       } catch (err: any) {
-        const errorMessage = err.response?.data?.error || "❌ שגיאה בשליחת ההזמנה";
+        const errorMessage = err.response?.data?.error || "שגיאה בשליחת ההזמנה";
         showError(errorMessage);
       } finally {
         setIsSubmitting(false);
@@ -131,7 +131,7 @@ export const Checkout = () => {
           disabled={!hasItems || !formValidation.isFormValid || isSubmitting}
           startIcon={isSubmitting ? <CircularProgress size={16} color="inherit" /> : null}
         >
-          {isSubmitting ? 'מעבד הזמנה...' : 'אשר הזמנה ✅'}
+          {isSubmitting ? 'מעבד הזמנה...' : 'אשר הזמנה'}
         </Button>
         {!formValidation.isFormValid && Object.keys(formValidation.touched).length > 0 && (
           <Typography 

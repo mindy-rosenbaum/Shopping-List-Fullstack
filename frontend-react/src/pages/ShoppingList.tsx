@@ -94,7 +94,7 @@ export const ShoppingList = () => {
 
   return (
     <Box sx={{ p: 4, maxWidth: 800, margin: 'auto', direction: 'rtl' }}>
-      <Typography variant="h4" gutterBottom>יצירת רשימת קניות</Typography>
+      <Typography variant="h4" gutterBottom>רשימת הקניות שלי</Typography>
 
       {loadingCategories ? (
         <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
