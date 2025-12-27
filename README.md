@@ -1,3 +1,5 @@
+<div dir="rtl">
+  
 # 🛒 Shopping Store - Full Stack Enterprise System
 
 מערכת מלאה מקצה לקצה לניהול חנות מקוונת, המשלבת ארכיטקטורת Microservices, חיפוש מתקדם ב-Elasticsearch וממשק משתמש מודרני.
@@ -85,4 +87,6 @@
 * מערכת הelasticsearch   מוגדרת לעבוד ללא אבטחה (xpack.security.enabled=false) לצורך סביבת פיתוח בלבד.
 * סדר פעולות: חובה להפעיל את ה-Elasticsearch לפני שרת ה-Node.js כדי למנוע שגיאות חיבור.
 ---
-מפתחת : מינדי רוזנבאום 2025 
+מפתחת : מינדי רוזנבאום 2025
+
+</div>
