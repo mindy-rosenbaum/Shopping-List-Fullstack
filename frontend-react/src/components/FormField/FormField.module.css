@@ -1,0 +1,28 @@
+.formField {
+  margin-bottom: 16px;
+}
+
+.formField .MuiOutlinedInput-root {
+  border-radius: 8px;
+}
+
+.formField .MuiInputLabel-root {
+  font-weight: 500;
+  background-color: white;
+  padding: 0 4px;
+}
+
+.formField .MuiFormHelperText-root {
+  margin-left: 0;
+  margin-right: 14px;
+  margin-top: 6px;
+  font-size: 0.875rem;
+}
+
+.formField.error .MuiOutlinedInput-root {
+  border-color: #d32f2f;
+}
+
+.formField.error .MuiInputLabel-root {
+  color: #d32f2f;
+}

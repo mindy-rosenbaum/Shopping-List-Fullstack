@@ -1,0 +1,34 @@
+# --- Node.js & React (Frontend + Node Backend) ---
+# מחריג את כל הספריות המותקנות (הן כבדות מאוד)
+node_modules/
+# מחריג את תיקיות הבילד (התוצר הסופי)
+dist/
+build/
+# מחריג קבצי הגדרות אישיים (משתני סביבה)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- .NET (Dotnet Backend) ---
+# מחריג את תיקיות הקימפול של סי-שארפ
+bin/
+obj/
+# מחריג הגדרות משתמש של ויז'ואל סטודיו
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- IDEs & Editors (כלים של מתכנתים) ---
+# מחריג הגדרות של VS Code
+.vscode/
+# מחריג קבצי מערכת של Mac ו-Windows
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
