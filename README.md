@@ -43,30 +43,52 @@
 
 ### 1. תשתיות ומסדי נתונים (Docker) 🗄️
 
- לפני הכל, ודאו ש-**Docker Desktop** מותקן ורץ.
-### הורדת Docker Desktop
-  הורידו והתקינו את הגרסה המתאימה למערכת ההפעלה שלכם מהאתר הרשמי:
+-  לפני הכל, ודאו ש-**Docker Desktop** מותקן ורץ.
+#### הורדת Docker Desktop
+ הורידו והתקינו את הגרסה המתאימה למערכת ההפעלה שלכם מהאתר הרשמי:
   [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
-  *האתר יזהה אוטומטית אם המחשב שלכם מבוסס Windows או Mac (Intel/Apple Chip).*
-   1. פתחו טרמינל בתיקיית `infrastructure`.
-   2. הריצו את הפקודה:
+
+   -  פתחו טרמינל בתיקיית `infrastructure`.
+   -  הריצו את הפקודה:
       ```bash
       docker-compose up -d
-   3. המתינו כ 30 שניות לעלייה מלאה של השרתים
+   -  המתינו כ 30 שניות לעלייה מלאה של השרתים
+
 
 ### 2. 🛠️ הקמת בסיס הנתונים (SQL Server)
 
 לאחר שהדוקר רץ, עליכם להקים את מבנה הנתונים:
-   1. פתחו את **SQL Server Management Studio (SSMS)** או כל כלי ניהול SQL אחר.
-   2. התחברו לשרת עם הפרטים הבאים:
+   - פתחו את **SQL Server Management Studio (SSMS)** או כל כלי ניהול SQL אחר.
+   - התחברו לשרת עם הפרטים הבאים:
          * **Server Name:** `localhost,1433`
          * **Authentication:** `SQL Server Authentication`
          * **Login:** `sa`
          * **Password:** `YourStrongPassword123!`
          * **Trust server certificate** ב **Options >**,חפש **Connection Properties** ובחר באופציה  **"Trust server certificate"** שתהיה דלוקה.
-   3. לאחר ההתחברות, גררו לתוך התוכנה את הקובץ: `infrastructure/db-script.sql`.
-   4. לחצו על **Execute** (או F5) להרצת הסקריפט.
+   - לאחר ההתחברות, גררו לתוך התוכנה את הקובץ: `infrastructure/db-script.sql`.
+   - לחצו על **Execute** (או F5) להרצת הסקריפט.
          * *פעולה זו תיצור את מסד הנתונים, הטבלאות ותזין נתונים ראשוניים.*
+
+<div dir="rtl">
+
+### ⚠️ הרצה ללא Docker (שימוש בשרתים מקומיים)
+
+אם בחרתם להשתמש ב-**SQL Server** ו-**Elasticsearch** המותקנים אצלכם מקומית (ולא דרך ה-Docker המצורף), עליכם לבצע את ההתאמות הבאות כדי שהמערכת תפעל:
+
+1. **הגדרות בסיס נתונים (SQL Server):**
+    * הריצו את הסקריפט `db-script.sql` (נמצא בתיקיית `infrastructure`) ליצירת הטבלאות.
+    * אם שם המשתמש או הסיסמה אצלכם שונים מ-`sa` / `YourStrongPassword123!`, עליכם לעדכן אותם בקובץ `appsettings.json` בפרויקט ה-dotnet.
+
+2. **הגדרות Elasticsearch:**
+    * ודאו ששרת ה-Elastic המקומי שלכם רץ בפורט `9200`.
+    * במידה והשרת דורש אימות (Authentication) או כתובת שונה, יש לעדכן זאת בקובץ ה-`.env` בשרת ה-Node.
+
+3. **תאימות גרסאות:**
+    * הפרויקט פותח ונוסה על **SQL 2022** ו-**Elastic 8.10.2**. שימוש בגרסאות ישנות יותר עלול לגרום לשגיאות בחיבור או ביצירת האינדקסים.
+
+**המלצה:** כדי להימנע משינויי קוד והגדרות ידניות, מומלץ פשוט לעצור את השירותים המקומיים ולהריץ `docker-compose up -d`.
+
+</div>
 
 ### 3. שרת ההזמנות (Node.js):
    - כנסו לתיקיית `backend-node`.
